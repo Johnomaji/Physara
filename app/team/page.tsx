@@ -40,7 +40,7 @@ export default function TeamPage() {
         ]}
       />
 
-      <section className="py-10 lg:py-14">
+      <section className="py-16 lg:py-20">
         <div className="wrap">
           <Reveal>
             <TeamTabs />
@@ -48,7 +48,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <section className="border-t border-line py-20 lg:py-24">
+      <section className="border-t border-line py-24 lg:py-32">
         <div className="wrap">
           <SectionHead
             overline="02 / How we work"
@@ -56,19 +56,19 @@ export default function TeamPage() {
             body="The platform reflects the way the team works. These are the principles we keep coming back to when we decide what to build next."
           />
 
-          <Stagger className="grid gap-2.5 md:grid-cols-3">
+          <Stagger className="grid gap-4 md:grid-cols-3">
             {values.map((v) => (
               <StaggerItem
                 key={v.num}
-                className="group rounded-2xl border border-line bg-panel p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50"
+                className="group rounded-2xl border border-line bg-panel p-7 transition-colors duration-300 hover:border-accent/40"
               >
-                <span className="font-mono text-[9px] font-bold tracking-[0.1em] text-accent">
+                <span className="font-mono text-[11px] font-medium tracking-[0.08em] text-accent">
                   {v.num}
                 </span>
-                <h3 className="mt-8 font-display text-xl font-bold tracking-[-0.04em]">
+                <h3 className="mt-8 font-display text-[20px] font-semibold tracking-[-0.015em]">
                   {v.title}
                 </h3>
-                <p className="mt-3 text-[13px] leading-[1.7] text-muted">
+                <p className="mt-3 text-[15px] leading-[1.62] text-muted">
                   {v.body}
                 </p>
               </StaggerItem>
@@ -76,7 +76,7 @@ export default function TeamPage() {
           </Stagger>
 
           <Reveal delay={0.15}>
-            <div className="mt-10 flex flex-wrap gap-2.5">
+            <div className="mt-12 flex flex-wrap gap-3">
               <ButtonLink href="/contact">
                 Work with us <span>→</span>
               </ButtonLink>

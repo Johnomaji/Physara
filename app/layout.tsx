@@ -1,29 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Manrope, DM_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const sora = Sora({
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-sora",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const manrope = Manrope({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-manrope",
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dm-mono",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -82,7 +73,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f2f6fa" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#04070b" },
   ],
 };
@@ -96,12 +87,12 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sora.variable} ${manrope.variable} ${dmMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable}`}
     >
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >

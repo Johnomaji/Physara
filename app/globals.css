@@ -8,34 +8,31 @@
    no-JS / light path renders correctly.
 ---------------------------------------------------------------- */
 :root {
-  --bg: #f2f6fa;
-  --bg-2: #ffffff;
+  --bg: #ffffff;
+  --bg-2: #fafbfc;
   --panel: #ffffff;
-  --panel-2: #f7fafd;
-  --line: #dde6ef;
-  --line-2: #c6d4e2;
-  --text: #081016;
-  --muted: #45586b;
-  --soft: #5a6b7d;
-  --accent: #0a86a8;
-  --accent-2: #067a9b;
-  --accent-soft: rgba(10, 134, 168, 0.1);
+  --panel-2: #f6f9fb;
+  --line: #e4e9ee;
+  --line-2: #d2dae2;
+  --text: #0a1119;
+  --muted: #4a5b6d;
+  --soft: #6b7c8d;
+  --accent: #067a9b;
+  --accent-2: #0a86a8;
+  --accent-soft: rgba(6, 122, 155, 0.09);
   --mag: #cf1179;
   --violet: #5c43cf;
   --lime: #3f8c12;
-  --invert-bg: #081016;
-  --invert-fg: #f4f8fc;
-  --grid: rgba(8, 16, 22, 0.05);
-  --scene: rgba(10, 134, 168, 0.14);
-  --shadow: 0 20px 65px rgba(18, 38, 58, 0.09);
-  --shadow-lg: 0 28px 90px rgba(18, 38, 58, 0.12);
-  --page-glow: radial-gradient(
-    900px 520px at 50% -6%,
-    rgba(10, 134, 168, 0.12),
-    transparent 65%
-  );
-  --page-base: linear-gradient(180deg, #f2f6fa 0%, #eef3f8 42%, #f2f6fa 100%);
-  --nav-bg: rgba(242, 246, 250, 0.78);
+  --invert-bg: #0a1119;
+  --invert-fg: #ffffff;
+  --grid: transparent;
+  --scene: rgba(6, 122, 155, 0.12);
+  --shadow: 0 2px 5px rgba(10, 17, 25, 0.04), 0 12px 28px rgba(10, 17, 25, 0.05);
+  --shadow-lg: 0 4px 10px rgba(10, 17, 25, 0.05),
+    0 24px 56px rgba(10, 17, 25, 0.08);
+  --page-glow: linear-gradient(transparent, transparent);
+  --page-base: linear-gradient(#ffffff, #ffffff);
+  --nav-bg: rgba(255, 255, 255, 0.82);
 }
 
 .dark {
@@ -87,9 +84,9 @@
   --color-invert-bg: var(--invert-bg);
   --color-invert-fg: var(--invert-fg);
 
-  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --breakpoint-xs: 26rem;
 }
@@ -153,23 +150,34 @@
 @layer components {
   .wrap {
     width: 100%;
-    max-width: 1320px;
+    max-width: 1200px;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
 
   @media (min-width: 768px) {
     .wrap {
-      padding-inline: 1.75rem;
+      padding-inline: 2.5rem;
     }
+  }
+
+  /* Thin vertical guides at the container edge, as on Stripe. The rules are
+     drawn inside the padding box so they align across stacked sections. */
+  .ruled {
+    border-inline: 1px solid var(--line);
+  }
+
+  /* Text column, held narrower than the frame so prose keeps a sane measure */
+  .measure {
+    max-width: 660px;
   }
 
   /* Uppercase mono micro-label used throughout the design */
   .mono-label {
     font-family: var(--font-mono);
-    font-size: 0.5rem;
+    font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.085em;
     text-transform: uppercase;
     color: var(--soft);
   }
@@ -181,30 +189,43 @@
 
   .display-xl {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(3.25rem, 7.3vw, 6.75rem);
-    line-height: 0.92;
-    letter-spacing: -0.078em;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 5.4vw, 4.5rem);
+    line-height: 1.07;
+    letter-spacing: -0.022em;
   }
 
   .display-lg {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(2.5rem, 5.2vw, 4.75rem);
-    line-height: 0.98;
-    letter-spacing: -0.065em;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 4vw, 3.25rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
   }
 
   .display-md {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(2.1rem, 4.4vw, 3.75rem);
-    line-height: 1.03;
-    letter-spacing: -0.062em;
+    font-size: clamp(1.7rem, 2.9vw, 2.4rem);
+    line-height: 1.18;
+    letter-spacing: -0.018em;
   }
 }
 
 @layer utilities {
+  /* Headline treatment where the type picks up the hero ribbon as it crosses */
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--text) 34%,
+      var(--violet) 64%,
+      var(--mag) 92%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .scene-grid {
     background-image: linear-gradient(var(--scene) 1px, transparent 1px),
       linear-gradient(90deg, var(--scene) 1px, transparent 1px);

@@ -36,7 +36,7 @@ export default function LiveSimPage() {
         body="Pick a task and watch a simulated robot work through it. We keep the important details visible, but the story stays simple: what did we test, what happened, and did the robot get better?"
       />
 
-      <section className="py-10 lg:py-14">
+      <section className="py-16 lg:py-20">
         <div className="wrap">
           <Reveal>
             <LiveLab />
@@ -44,7 +44,7 @@ export default function LiveSimPage() {
         </div>
       </section>
 
-      <section className="border-t border-line py-20 lg:py-24">
+      <section className="border-t border-line py-24 lg:py-32">
         <div className="wrap">
           <SectionHead
             overline="02 / How to read it"
@@ -52,19 +52,19 @@ export default function LiveSimPage() {
             body="The interface shows a lot at once. These are the parts that actually tell you whether a skill is ready to move toward hardware."
           />
 
-          <Stagger className="grid gap-2.5 md:grid-cols-3">
+          <Stagger className="grid gap-4 md:grid-cols-3">
             {readGuide.map((g) => (
               <StaggerItem
                 key={g.num}
-                className="group rounded-2xl border border-line bg-panel p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50"
+                className="group rounded-2xl border border-line bg-panel p-7 transition-colors duration-300 hover:border-accent/40"
               >
-                <span className="font-mono text-[9px] font-bold tracking-[0.1em] text-accent">
+                <span className="font-mono text-[11px] font-medium tracking-[0.08em] text-accent">
                   {g.num}
                 </span>
-                <h3 className="mt-8 font-display text-xl font-bold tracking-[-0.04em]">
+                <h3 className="mt-8 font-display text-[20px] font-semibold tracking-[-0.015em]">
                   {g.title}
                 </h3>
-                <p className="mt-3 text-[13px] leading-[1.7] text-muted">
+                <p className="mt-3 text-[15px] leading-[1.62] text-muted">
                   {g.body}
                 </p>
               </StaggerItem>
@@ -72,7 +72,7 @@ export default function LiveSimPage() {
           </Stagger>
 
           <Reveal delay={0.15}>
-            <div className="mt-10 flex flex-wrap gap-2.5">
+            <div className="mt-12 flex flex-wrap gap-3">
               <ButtonLink href="/contact">
                 Bring us your hardest task <span>→</span>
               </ButtonLink>

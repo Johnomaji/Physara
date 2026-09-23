@@ -118,7 +118,7 @@ export function Counter({
 /* ------------------------------ Buttons ---------------------------- */
 
 const baseBtn =
-  "inline-flex items-center gap-2 rounded-lg px-4 py-3 font-mono text-[9px] font-semibold uppercase tracking-[0.06em] transition-all duration-200 hover:-translate-y-0.5";
+  "inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-[15px] font-medium transition-colors duration-200";
 
 export function ButtonLink({
   href,
@@ -131,10 +131,12 @@ export function ButtonLink({
   variant?: "primary" | "secondary";
   className?: string;
 }) {
+  /* invert-fg flips with the theme, so the label stays readable on the accent
+     fill in both directions: white on teal in light, near-black on cyan in dark */
   const style =
     variant === "primary"
-      ? "bg-invert-bg text-invert-fg hover:shadow-[0_10px_30px_var(--accent-soft)]"
-      : "border border-line-2 text-text hover:border-accent hover:text-accent";
+      ? "bg-accent text-invert-fg hover:bg-accent-2"
+      : "bg-panel text-text ring-1 ring-line-2 shadow-sm hover:ring-accent hover:text-accent";
 
   const external = href.startsWith("mailto:") || href.startsWith("http");
 
@@ -167,13 +169,15 @@ export function SectionHead({
   className?: string;
 }) {
   return (
-    <Reveal className={`mb-8 flex flex-col gap-5 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-12 ${className}`}>
+    <Reveal className={`mb-12 flex flex-col gap-6 lg:mb-16 lg:flex-row lg:items-end lg:justify-between lg:gap-16 ${className}`}>
       <div>
-        <div className="mono-label tracking-[0.17em]">{overline}</div>
-        <h2 className="display-md mt-2.5 max-w-[880px]">{title}</h2>
+        <div className="mono-label text-accent">{overline}</div>
+        <h2 className="display-md mt-3 max-w-[760px]">{title}</h2>
       </div>
       {body && (
-        <p className="max-w-[560px] text-sm leading-[1.75] text-muted">{body}</p>
+        <p className="max-w-[460px] text-[17px] leading-[1.62] text-muted">
+          {body}
+        </p>
       )}
     </Reveal>
   );
@@ -183,7 +187,7 @@ export function SectionHead({
 
 export function Signal({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 font-mono text-[8px] font-semibold uppercase tracking-[0.1em] text-text">
+    <span className="inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-text">
       <span className="h-[7px] w-[7px] rounded-full bg-lime shadow-[0_0_12px_var(--lime)]" />
       {children}
     </span>

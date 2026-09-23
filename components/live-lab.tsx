@@ -28,7 +28,7 @@ export function LiveLab() {
               type="button"
               onClick={() => setActive(s)}
               aria-pressed={active.id === s.id}
-              className={`relative flex-1 rounded-lg border px-3 py-2.5 font-mono text-[8px] font-semibold uppercase tracking-[0.08em] transition-colors sm:flex-none ${
+              className={`relative flex-1 rounded-lg border px-4 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.07em] transition-colors sm:flex-none ${
                 active.id === s.id
                   ? "border-transparent text-invert-fg"
                   : "border-line text-muted hover:border-line-2 hover:text-text"
@@ -99,7 +99,7 @@ export function LiveLab() {
 function Meter({ label, value, pct }: { label: string; value: string; pct: number }) {
   return (
     <div className="my-3">
-      <div className="flex items-center justify-between font-mono text-[8px] text-muted">
+      <div className="flex items-center justify-between font-mono text-[11px] text-muted">
         <span>{label}</span>
         <b className="font-medium text-text">{value}</b>
       </div>
@@ -123,10 +123,10 @@ function BodyPanel({ s }: { s: Scenario }) {
     <div className="relative z-10 flex items-center p-4 sm:p-6">
       <div className="w-full rounded-xl border border-line bg-panel/85 p-4 backdrop-blur-md">
         <div className="mono-label">How the body feels</div>
-        <h3 className="mt-1.5 font-display text-[13px] font-bold tracking-[-0.025em]">
+        <h3 className="mt-1.5 font-display text-[16px] font-semibold tracking-[-0.015em]">
           Is the robot keeping its balance?
         </h3>
-        <p className="mb-3 mt-2 text-xs leading-[1.6] text-muted">
+        <p className="mb-3 mt-2 text-[14px] leading-[1.6] text-muted">
           We look at the signals that tell us whether the body is stable and in
           control.
         </p>
@@ -134,7 +134,7 @@ function BodyPanel({ s }: { s: Scenario }) {
         <Meter label="Contact quality" value={`${s.contact}%`} pct={s.contact} />
         <Meter label="Torque load" value={s.torque} pct={s.torquePct} />
         <Meter label="Foot slip" value={s.slip} pct={s.slipPct} />
-        <div className="mt-4 flex items-center gap-2.5 text-[10px] leading-[1.5] text-muted">
+        <div className="mt-4 flex items-center gap-2.5 text-[13px] leading-[1.5] text-muted">
           <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-line font-mono text-[11px] font-bold text-lime">
             ☺
           </span>
@@ -160,7 +160,7 @@ function SuccessPanel({ s }: { s: Scenario }) {
     <div className="relative z-10 flex items-center p-4 sm:p-6">
       <div className="w-full rounded-xl border border-line bg-panel/85 p-4 backdrop-blur-md">
         <div className="mono-label">Did it succeed?</div>
-        <h3 className="mt-1.5 font-display text-[13px] font-bold tracking-[-0.025em]">
+        <h3 className="mt-1.5 font-display text-[16px] font-semibold tracking-[-0.015em]">
           We track progress across many tries.
         </h3>
         <AnimatePresence mode="wait">
@@ -171,10 +171,10 @@ function SuccessPanel({ s }: { s: Scenario }) {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="mb-1.5 mt-2 font-display text-[43px] font-extrabold tracking-[-0.065em] text-lime">
+            <div className="mb-1.5 mt-2 font-display text-[40px] font-semibold tracking-[-0.025em] text-lime">
               {s.success}
             </div>
-            <span className="inline-flex items-center rounded-md border border-lime/40 px-1.5 py-1 font-mono text-[7px] font-semibold text-lime">
+            <span className="inline-flex items-center rounded-md border border-lime/40 px-2 py-1 font-mono text-[11px] font-medium text-lime">
               ↗ {s.delta}
             </span>
           </motion.div>
@@ -208,7 +208,7 @@ function SuccessPanel({ s }: { s: Scenario }) {
             />
           </svg>
         </div>
-        <p className="mt-2.5 text-xs leading-[1.6] text-muted">
+        <p className="mt-2.5 text-[14px] leading-[1.6] text-muted">
           Task success is improving with each round of practice.
         </p>
       </div>
@@ -227,8 +227,8 @@ function StageFooter({ s }: { s: Scenario }) {
   return (
     <div className="absolute inset-x-3 bottom-3 z-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:inset-x-4 sm:bottom-4 lg:grid-cols-[1.35fr_repeat(3,1fr)]">
       {cells.map((c) => (
-        <div key={c.label} className="min-h-[64px] bg-panel p-3">
-          <div className="mono-label text-[7px]">{c.label}</div>
+        <div key={c.label} className="min-h-[68px] bg-panel p-4">
+          <div className="mono-label text-[10px]">{c.label}</div>
           <AnimatePresence mode="wait">
             <motion.div
               key={c.value}
@@ -236,7 +236,7 @@ function StageFooter({ s }: { s: Scenario }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.25 }}
-              className={`mt-1 font-display text-[17px] font-extrabold tracking-[-0.045em] ${c.tone}`}
+              className={`mt-1 font-display text-[18px] font-semibold tracking-[-0.018em] ${c.tone}`}
             >
               {c.value}
             </motion.div>
@@ -274,12 +274,12 @@ function LabStats() {
   return (
     <div className="grid gap-px border-t border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((s) => (
-        <div key={s.label} className="bg-panel p-5">
-          <div className="font-display text-[29px] font-extrabold tracking-[-0.06em]">
+        <div key={s.label} className="bg-panel p-6">
+          <div className="font-display text-[30px] font-semibold tracking-[-0.022em]">
             {s.num}
           </div>
-          <div className="mono-label mt-1 text-text/70">{s.label}</div>
-          <p className="mt-2 text-[11px] leading-[1.55] text-muted">{s.body}</p>
+          <div className="mono-label mt-1.5 text-text/70">{s.label}</div>
+          <p className="mt-2 text-[14px] leading-[1.58] text-muted">{s.body}</p>
         </div>
       ))}
     </div>

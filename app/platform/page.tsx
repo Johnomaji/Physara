@@ -41,7 +41,7 @@ export default function PlatformPage() {
 
 function Architecture() {
   return (
-    <section className="py-20 lg:py-24">
+    <section className="py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           overline="02 / Architecture"
@@ -53,7 +53,7 @@ function Architecture() {
           <div className="overflow-hidden rounded-2xl border border-line bg-panel">
             <div className="flex flex-col gap-3 border-b border-line p-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <div className="font-display text-[13px] font-semibold">
+                <div className="font-display text-[16px] font-semibold">
                   Physara simulation architecture
                 </div>
                 <div className="mono-label mt-1">
@@ -67,19 +67,19 @@ function Architecture() {
               {architecture.map((a) => (
                 <StaggerItem
                   key={a.num}
-                  className="group relative min-h-[225px] bg-panel p-5 transition-colors hover:bg-panel-2"
+                  className="group relative min-h-[240px] bg-panel p-6 transition-colors hover:bg-panel-2"
                 >
                   <div className="mono-label">{a.num}</div>
                   <span
-                    className="absolute right-5 top-5 grid h-8 w-8 place-items-center rounded-lg border border-line font-mono text-[10px] transition-transform duration-300 group-hover:scale-110"
+                    className="absolute right-5 top-5 grid h-8 w-8 place-items-center rounded-lg border border-line font-mono text-[13px] transition-transform duration-300 group-hover:scale-110"
                     style={{ color: a.color }}
                   >
                     {a.icon}
                   </span>
-                  <h3 className="mt-11 font-display text-[17px] font-semibold tracking-[-0.035em]">
+                  <h3 className="mt-11 font-display text-[18px] font-semibold tracking-[-0.015em]">
                     {a.title}
                   </h3>
-                  <p className="mt-2 text-[11px] leading-[1.62] text-muted">
+                  <p className="mt-2 text-[14px] leading-[1.6] text-muted">
                     {a.body}
                   </p>
                 </StaggerItem>
@@ -97,7 +97,7 @@ function Architecture() {
             ].map(([k, v]) => (
               <span
                 key={k}
-                className="rounded-lg border border-line px-2.5 py-2 font-mono text-[8px] text-muted"
+                className="rounded-lg border border-line px-3 py-2 font-mono text-[12px] text-muted"
               >
                 <b className="font-medium text-text">{k}</b> {v}
               </span>
@@ -111,7 +111,7 @@ function Architecture() {
 
 function TrainingLoop() {
   return (
-    <section className="border-t border-line py-20 lg:py-24">
+    <section className="border-t border-line py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           overline="03 / Training loop"
@@ -121,7 +121,7 @@ function TrainingLoop() {
 
         <div className="grid gap-4 lg:grid-cols-[0.74fr_1.26fr]">
           <Reveal>
-            <div className="h-full rounded-2xl border border-line bg-panel p-5">
+            <div className="h-full rounded-2xl border border-line bg-panel p-6">
               <div className="mono-label">How a skill improves</div>
               {pipelineSteps.map((s) => (
                 <div
@@ -130,13 +130,13 @@ function TrainingLoop() {
                 >
                   <span className="mono-label">{s.no}</span>
                   <div>
-                    <h4 className="font-display text-xs font-semibold">
+                    <h4 className="font-display text-[15px] font-semibold">
                       {s.title}
                     </h4>
                     <span className="mono-label mt-0.5 block">{s.sub}</span>
                   </div>
                   <span
-                    className={`font-mono text-[7px] font-medium uppercase tracking-[0.08em] ${
+                    className={`font-mono text-[11px] font-medium uppercase tracking-[0.08em] ${
                       s.risk ? "text-mag" : "text-lime"
                     }`}
                   >
@@ -158,7 +158,7 @@ function TrainingLoop() {
 
 function Observability() {
   return (
-    <section className="border-t border-line py-20 lg:py-24">
+    <section className="border-t border-line py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           overline="04 / Observability"
@@ -168,7 +168,7 @@ function Observability() {
 
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal>
-            <div className="rounded-2xl border border-line bg-panel p-5">
+            <div className="rounded-2xl border border-line bg-panel p-6">
               <div className="mono-label border-b border-line pb-3.5">
                 Episode trace / recovery-004
               </div>
@@ -210,10 +210,10 @@ function Observability() {
 
           <Reveal delay={0.1}>
             <div className="h-full rounded-2xl border border-line bg-panel p-6">
-              <h3 className="font-display text-[34px] font-extrabold leading-[0.98] tracking-[-0.055em]">
+              <h3 className="font-display text-[30px] font-semibold leading-[1.15] tracking-[-0.02em]">
                 Turn failed trials into better tests.
               </h3>
-              <p className="mt-4 max-w-[52ch] text-[15px] leading-[1.75] text-muted">
+              <p className="mt-4 max-w-[52ch] text-[16px] leading-[1.65] text-muted">
                 When a trial fails, teams can see the movement around the failure
                 and decide what to change next: the skill, the environment or the
                 robot model.
@@ -224,7 +224,7 @@ function Observability() {
                   ["Event", "contact + disturbance timeline"],
                   ["Outcome", "success + stability metrics"],
                 ].map(([k, v]) => (
-                  <span key={k} className="font-mono text-[9px] text-muted">
+                  <span key={k} className="font-mono text-[12px] text-muted">
                     <b className="font-medium text-text">{k}</b> {v}
                   </span>
                 ))}
@@ -239,7 +239,7 @@ function Observability() {
 
 function Transfer() {
   return (
-    <section className="border-t border-line py-20 lg:py-24">
+    <section className="border-t border-line py-24 lg:py-32">
       <div className="wrap">
         <SectionHead
           overline="05 / Transfer"
@@ -254,13 +254,13 @@ function Transfer() {
                 key={s.num}
                 className="min-h-[220px] bg-panel p-6 transition-colors hover:bg-panel-2"
               >
-                <span className="font-mono text-[9px] font-bold tracking-[0.1em] text-accent">
+                <span className="font-mono text-[11px] font-medium tracking-[0.08em] text-accent">
                   {s.num}
                 </span>
-                <h3 className="mt-10 font-display text-[28px] font-bold tracking-[-0.045em]">
+                <h3 className="mt-10 font-display text-[24px] font-semibold tracking-[-0.018em]">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-[13px] leading-[1.7] text-muted">
+                <p className="mt-3 text-[15px] leading-[1.62] text-muted">
                   {s.body}
                 </p>
                 <strong className="mono-label mt-5 block text-text/70">
@@ -293,7 +293,7 @@ function Transfer() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-10 flex flex-wrap gap-2.5">
+          <div className="mt-12 flex flex-wrap gap-3">
             <ButtonLink href="/live-sim">
               See it running <span>↗</span>
             </ButtonLink>

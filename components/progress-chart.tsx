@@ -4,19 +4,19 @@ import { motion } from "motion/react";
 
 export function ProgressChart() {
   return (
-    <div className="h-full rounded-2xl border border-line bg-panel p-5">
+    <div className="h-full rounded-2xl border border-line bg-panel p-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="mono-label">Progress / last 200k steps</div>
-          <h3 className="mt-2 font-display text-[17px] font-semibold">
+          <h3 className="mt-2 font-display text-[18px] font-semibold tracking-[-0.015em]">
             Measure improvement where it matters.
           </h3>
-          <p className="mt-3 max-w-[560px] text-[13px] leading-[1.65] text-muted">
+          <p className="mt-3 max-w-[560px] text-[15px] leading-[1.62] text-muted">
             The useful signal is not only success. It is whether the robot becomes
             more stable as conditions change.
           </p>
         </div>
-        <div className="flex gap-3 font-mono text-[7px] uppercase text-soft">
+        <div className="flex gap-4 font-mono text-[11px] uppercase text-soft">
           <span className="flex items-center gap-1.5">
             <i className="inline-block h-[7px] w-[7px] rounded-full bg-accent" />
             Success

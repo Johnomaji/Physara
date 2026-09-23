@@ -32,7 +32,8 @@ export function SimShell() {
     >
       {/* sheen */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="animate-sweep absolute -inset-y-10 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/[0.045] to-transparent" />
+        {/* accent rather than white: a white sheen is invisible on the light panel */}
+        <div className="animate-sweep absolute -inset-y-10 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-accent/[0.07] to-transparent" />
       </div>
 
       <div className="absolute inset-x-4 top-4 z-10 flex justify-between gap-4">
@@ -55,11 +56,11 @@ export function SimShell() {
         transition={{ delay: 0.7, duration: 0.6 }}
         className="absolute left-3 top-[84px] z-10 w-[132px] rounded-xl border border-line bg-panel/90 p-3 backdrop-blur-sm sm:left-4 sm:w-[146px]"
       >
-        <div className="mono-label text-[7px]">Body state</div>
+        <div className="mono-label text-[10px]">Body state</div>
         {telemetry.map(([k, v]) => (
           <div
             key={k}
-            className="flex justify-between border-b border-line py-[7px] font-mono text-[7px] text-soft last:border-0 last:pb-0"
+            className="flex justify-between border-b border-line py-[7px] font-mono text-[10px] text-soft last:border-0 last:pb-0"
           >
             <span>{k}</span>
             <b className="font-medium text-text">{v}</b>
@@ -74,11 +75,11 @@ export function SimShell() {
         transition={{ delay: 0.85, duration: 0.6 }}
         className="absolute right-3 top-[72px] z-10 w-[140px] rounded-xl border border-line bg-panel/90 p-3 backdrop-blur-sm sm:right-4 sm:w-[156px]"
       >
-        <div className="flex items-center justify-between font-mono text-[7px] uppercase tracking-[0.08em] text-soft">
+        <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.08em] text-soft">
           <span>Task success</span>
           <span className="text-lime">+7.2%</span>
         </div>
-        <div className="mt-1.5 font-display text-2xl font-bold tracking-[-0.055em] text-lime">
+        <div className="mt-1.5 font-display text-2xl font-semibold tracking-[-0.025em] text-lime">
           93.7%
         </div>
         <div className="mt-2 h-[42px] border-t border-line">
@@ -104,10 +105,10 @@ export function SimShell() {
       {/* bottom readout */}
       <div className="absolute inset-x-3 bottom-3 z-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line sm:inset-x-3.5 sm:bottom-3.5 lg:grid-cols-[1.25fr_repeat(3,1fr)]">
         {cells.map((c) => (
-          <div key={c.label} className="min-h-[68px] bg-panel p-3">
-            <div className="mono-label text-[7px]">{c.label}</div>
+          <div key={c.label} className="min-h-[72px] bg-panel p-4">
+            <div className="mono-label text-[10px]">{c.label}</div>
             <div
-              className={`mt-1.5 font-display text-base font-bold tracking-[-0.04em] ${c.tone}`}
+              className={`mt-1.5 font-display text-base font-semibold tracking-[-0.018em] ${c.tone}`}
             >
               {c.value}
             </div>

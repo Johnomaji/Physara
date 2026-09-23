@@ -42,10 +42,10 @@ export function Navbar() {
         <Link
           href="/"
           aria-label="Physara home"
-          className="flex items-center gap-3 font-display text-[13px] font-extrabold tracking-[0.25em]"
+          className="flex items-center gap-2.5 font-display text-[18px] font-semibold tracking-[-0.02em]"
         >
           <Logo className="h-7 w-7 shrink-0" />
-          PHYSARA
+          Physara
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -53,35 +53,29 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`relative rounded-lg px-3 py-2 font-mono text-[9px] font-medium uppercase tracking-[0.14em] transition-colors ${
-                isActive(link.href)
-                  ? "text-text"
-                  : "text-soft hover:text-text"
+              className={`relative px-3.5 py-2 text-[15px] font-medium transition-colors ${
+                isActive(link.href) ? "text-accent" : "text-muted hover:text-text"
               }`}
             >
+              {link.label}
               {isActive(link.href) && (
                 <motion.span
                   layoutId="nav-active"
-                  className="absolute inset-0 rounded-lg border border-line bg-panel"
+                  className="absolute inset-x-3.5 -bottom-px h-[2px] rounded-full bg-accent"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
-              <span className="relative">{link.label}</span>
             </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-2 pr-1 md:flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-lime shadow-[0_0_12px_var(--lime)]" />
-            <span className="mono-label text-[8px]">System nominal</span>
-          </div>
           <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden rounded-lg border border-line-2 px-3 py-2.5 font-mono text-[9px] font-semibold uppercase tracking-[0.08em] transition-colors hover:border-accent hover:text-accent sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[15px] font-medium text-invert-fg transition-colors hover:bg-accent-2 sm:inline-flex"
           >
-            Book a demo ↗
+            Book a demo <span aria-hidden>→</span>
           </Link>
           <button
             type="button"
@@ -150,9 +144,9 @@ export function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-invert-bg px-4 py-3.5 font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-invert-fg"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-accent px-5 py-3 text-[15px] font-medium text-invert-fg"
                 >
-                  Book a technical demo →
+                  Book a technical demo <span aria-hidden>→</span>
                 </Link>
                 <span className="mono-label">
                   Lagos Island · Robotics and simulation

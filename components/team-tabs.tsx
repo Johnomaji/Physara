@@ -106,20 +106,20 @@ export function TeamTabs() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="font-mono text-[8px] font-medium uppercase tracking-[0.13em] text-accent">
+            <div className="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-accent">
               {member.role} · {member.country}
             </div>
-            <h3 className="my-3 font-display text-[34px] font-extrabold leading-[0.95] tracking-[-0.065em] sm:text-[44px]">
+            <h3 className="mt-3 mb-4 font-display text-[32px] font-semibold leading-[1.1] tracking-[-0.022em] sm:text-[40px]">
               {member.name}
             </h3>
-            <p className="max-w-[540px] text-[15px] leading-[1.75] text-muted">
+            <p className="max-w-[540px] text-[16px] leading-[1.65] text-muted">
               {member.bio}
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-7 flex flex-wrap gap-2">
               {member.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-line px-2.5 py-2 font-mono text-[7px] font-medium uppercase tracking-[0.08em] text-muted"
+                  className="rounded-full border border-line px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.07em] text-muted"
                 >
                   {t}
                 </span>
