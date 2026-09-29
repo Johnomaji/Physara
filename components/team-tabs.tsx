@@ -82,12 +82,18 @@ export function TeamTabs() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.1 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 grid place-items-center"
+              className="absolute inset-0"
             >
-              <span className="relative font-display text-[110px] font-extrabold italic tracking-[-0.13em] text-text">
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent" />
+              <span className="absolute bottom-3 left-4 font-display text-[28px] font-extrabold italic leading-none tracking-[-0.08em] text-white">
                 {member.initial}
                 <span
-                  className="absolute left-5 top-10 h-2.5 w-16 -skew-x-[32deg]"
+                  className="absolute -bottom-1 left-0 h-[3px] w-9 -skew-x-[32deg]"
                   style={{
                     background:
                       "linear-gradient(90deg, var(--accent), var(--mag))",

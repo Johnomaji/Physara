@@ -292,14 +292,16 @@ export const teamMembers = [
     bio: "Building Physara around a simple idea: robots need better practice before they need more hardware time.",
     tags: ["Strategy", "Robotics", "Product"],
     initial: "N",
+    photo: "/1.jpg",
   },
   {
     name: "Lerato Maseko",
-    role: "Head of Simulation",
+    role: "Head of AI and Simulation",
     country: "South Africa",
     bio: "Leads the simulation stack, from articulated body models to contact dynamics, procedural worlds and the physics assumptions that make transfer meaningful.",
     tags: ["Simulation", "Physics", "Systems"],
     initial: "L",
+    photo: "/2.jpg",
   },
   {
     name: "Mwende Wanjiku",
@@ -308,6 +310,7 @@ export const teamMembers = [
     bio: "Owns the learning loop across reinforcement learning, imitation learning and evaluation, turning simulated experience into policies worth testing on hardware.",
     tags: ["Repeated trials", "Robotics", "Evaluation"],
     initial: "M",
+    photo: "/6.jpg",
   },
   {
     name: "Kojo Mensah",
@@ -316,6 +319,7 @@ export const teamMembers = [
     bio: "Focuses on dexterous manipulation, contact-rich tasks and failure discovery, expanding the edge cases the simulator can expose before they cost a robot-hour.",
     tags: ["Manipulation", "Research", "Contact"],
     initial: "K",
+    photo: "/3.jpg",
   },
   {
     name: "Eric Niyonzima",
@@ -324,5 +328,6 @@ export const teamMembers = [
     bio: "Builds the distributed compute and experiment infrastructure that lets Physara run high-throughput simulation reliably across large training workloads.",
     tags: ["GPU Systems", "Infrastructure", "Scale"],
     initial: "E",
+    photo: "/5.jpg",
   },
 ];
